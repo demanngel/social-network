@@ -2,12 +2,12 @@ import style from "./MyPosts.module.css"
 import Post from "./Post/Post";
 import {createRef} from "react";
 
-function MyPosts({state}) {
-    let postsElem = state.posts.map(post => <Post postText={post.text} likesCount={post.likes}/>)
+function MyPosts(props) {
+    let postsElem = props.state.posts.map(post => <Post postText={post.text} likesCount={post.likes}/>)
     let component = createRef();
 
     let addPost = () => {
-        alert(component.current.value);
+        props.addPost(component.current.value);
     }
 
     return (

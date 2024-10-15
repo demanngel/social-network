@@ -38,4 +38,16 @@ let state = {
     },
 };
 
+export let addPost = (text) => {
+    debugger;
+
+    let post = {
+        id: 5,
+        text: text,
+        likes: 0
+    }
+
+    state.profilePage.posts.push(post);
+}
+
 export default state;

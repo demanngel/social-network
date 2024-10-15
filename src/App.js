@@ -5,20 +5,20 @@ import Profile from "./components/Profile/Profile";
 import Dialogs from "./components/Dialogs/Dialogs";
 import {Route, Routes} from "react-router-dom";
 
-function App({state}) {
+function App(props) {
     return (
         <div className="App">
             <div className="header block-container">
                 <Header/>
             </div>
             <div className="nav block-container">
-                <Navbar state={state.navbar}/>
+                <Navbar state={props.state.navbar}/>
             </div>
             <div className="content block-container">
                 <Routes>
-                    <Route path="/profile" element={<Profile state={state.profilePage} />}/>
-                    <Route path="/dialogs" element={<Dialogs state={state.dialogsPage} />}/>
-                    <Route path="/*" element={<Profile state={state.profilePage} />}/>
+                    <Route path="/profile" element={<Profile state={props.state.profilePage} addPost={props.addPost}/>}/>
+                    <Route path="/dialogs" element={<Dialogs state={props.state.dialogsPage} />}/>
+                    <Route path="/*" element={<Profile state={props.state.profilePage} />}/>
                 </Routes>
             </div>
         </div>
