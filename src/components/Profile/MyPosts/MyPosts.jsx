@@ -7,13 +7,19 @@ function MyPosts(props) {
     let component = createRef();
 
     let addPost = () => {
-        props.addPost(component.current.value);
+        let text = component.current.value
+        props.addPost(text);
+    }
+
+    let changePostText = () => {
+        let text = component.current.value
+        props.changePostText(text);
     }
 
     return (
         <div className={style.content}>
             <div className={style.newPost}>
-                <textarea ref={component}/>
+                <textarea onChange={changePostText} ref={component}  value={props.state.postText}/>
                 <button onClick={addPost}>Add post</button>
             </div>
             <div className={style.posts}>

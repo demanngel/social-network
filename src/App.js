@@ -16,7 +16,7 @@ function App(props) {
             </div>
             <div className="content block-container">
                 <Routes>
-                    <Route path="/profile" element={<Profile state={props.state.profilePage} addPost={props.addPost}/>}/>
+                    <Route path="/profile" element={<Profile state={props.state.profilePage} addPost={props.addPost} changePostText={props.changePostText}/>}/>
                     <Route path="/dialogs" element={<Dialogs state={props.state.dialogsPage} />}/>
                     <Route path="/*" element={<Profile state={props.state.profilePage} />}/>
                 </Routes>
