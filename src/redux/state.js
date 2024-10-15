@@ -22,6 +22,7 @@ let state = {
             {id: 3, text: "How are you?"},
             {id: 4, text: "I'm fine, and you?"},
         ],
+        messageText: '',
     },
     navbar: {
       friends: [
@@ -33,21 +34,42 @@ let state = {
     },
 };
 
-export let addPost = (text) => {
+export let addPost = () => {
 
     let post = {
         id: 5,
-        text: text,
+        text: state.profilePage.postText,
         likes: 0
     }
 
     state.profilePage.posts.push(post);
+
+    state.profilePage.postText = '';
 
     rerenderEntireTree(state);
 }
 
 export let changePostText = (text) => {
     state.profilePage.postText = text;
+
+    rerenderEntireTree(state);
+}
+
+export let addMessage = (text) => {
+    let newMessage = {
+        id: 6,
+        text: text
+    };
+
+    state.dialogsPage.messages.push(newMessage);
+
+    state.dialogsPage.messageText = '';
+
+    rerenderEntireTree(state);
+}
+
+export let changeMessageText = (text) => {
+    state.dialogsPage.messageText = text;
 
     rerenderEntireTree(state);
 }

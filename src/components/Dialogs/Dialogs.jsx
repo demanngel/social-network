@@ -3,14 +3,19 @@ import Dialog from "./Dialog/Dialog";
 import Message from "./Message/Message";
 import {createRef} from "react";
 
-function Dialogs({state}) {
-    let dialogsElem = state.dialogs.map(dialog => <Dialog name={dialog.name} id={dialog.id}/>);
-    let messagesElem = state.messages.map(message => <Message messageText={message.text}/>);
+function Dialogs(props) {
+    let dialogsElem = props.state.dialogs.map(dialog => <Dialog name={dialog.name} id={dialog.id}/>);
+    let messagesElem = props.state.messages.map(message => <Message messageText={message.text}/>);
 
     let component = createRef();
 
     let sendMessage = () => {
-        alert(component.current.value);
+        props.addMessage(component.current.value);
+    }
+
+    let changeMessage = () => {
+        debugger;
+        props.changeMessageText();
     }
 
     return (
@@ -22,7 +27,7 @@ function Dialogs({state}) {
                 {messagesElem}
 
                 <div className={style.newMessage}>
-                    <textarea ref={component}/>
+                    <textarea ref={component} onChange={changeMessage} value={props.state.messageText}/>
                     <button onClick={sendMessage}>Send</button>
                 </div>
             </div>

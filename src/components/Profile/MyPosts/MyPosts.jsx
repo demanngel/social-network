@@ -7,8 +7,7 @@ function MyPosts(props) {
     let component = createRef();
 
     let addPost = () => {
-        let text = component.current.value
-        props.addPost(text);
+        props.addPost();
     }
 
     let changePostText = () => {
