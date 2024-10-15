@@ -11,5 +11,19 @@
 }
 
 .messages {
+    display: flex;
+    flex-direction: column;
+}
 
+.newMessage {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+.newMessage button {
+    margin-left: 10px;
+}
+
+.newMessage textarea {
+    width: 100%;
 }
