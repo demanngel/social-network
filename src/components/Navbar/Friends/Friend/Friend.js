@@ -1,18 +1,12 @@
-import style from "./Friends.module.css";
-import Avatar from "../../Avatar/Avatar";
-function Friends({state}) {
-    let friendsElem = state.map(friend => (
-        <div>
-            <Avatar />
-            <p>{friend.name}</p>
-        </div>
-    ));
-
+import style from "./Friend.module.css";
+import Avatar from "./../../../Avatar/Avatar";
+function Friend({name}) {
     return(
         <div>
-            {friendsElem}
+            <Avatar />
+            <p>{name}</p>
         </div>
     );
 }
 
-export default Friends;
+export default Friend;

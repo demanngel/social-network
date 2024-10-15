@@ -1,34 +1,19 @@
-import profile from "./Profile.module.css"
-function Profile() {
+import style from "./MyPosts.module.css"
+import Post from "./Post/Post";
+function MyPosts({state}) {
+    let postsElem = state.posts.map(post => <Post postText={post.text} likesCount={post.likes}/>)
+
     return (
-        <div className="content block">
-            <div className={profile.header}></div>
-            <div className={profile.info}>
-                <div className={profile.ava}>
-                    <img src="https://s13.stc.yc.kpcdn.net/share/i/instagram/B44solahwlo/wr-1280.webp"/>
-                </div>
-                <div className={profile.description}>
-                    Description
-                </div>
+        <div className={style.content}>
+            <div className={style.newPost}>
+                <textarea />
+                <button>Add post</button>
             </div>
-            <div className={profile.content}>
-                <div className={profile.newPost}>
-                    New post
-                </div>
-                <div className={profile.posts}>
-                    <div className={profile.post}>
-                        Post 1
-                    </div>
-                    <div className={profile.post}>
-                        Post 2
-                    </div>
-                    <div className={profile.post}>
-                        Post 3
-                    </div>
-                </div>
+            <div className={style.posts}>
+                {postsElem}
             </div>
         </div>
     );
 }
 
-export default Profile;
+export default MyPosts;

@@ -1,0 +1,21 @@
+.navbar {
+    width: max-content;
+    align-self: end;
+    flex-direction: row;
+    padding: 20px 60px 20px 40px;
+    height: 100%;
+}
+
+.item {
+    margin: 10px 0;
+    color: black;
+}
+
+.active {
+    color: aqua;
+}
+
+.item a:active,
+.item a:focus {
+    color: aqua;
+}

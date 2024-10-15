@@ -1,11 +1,8 @@
-import dialogs from "./Dialog.module.css"
-import {Link} from "react-router-dom";
-function Dialog({name, id}) {
+import style from "./Message.module.css"
+function Message({messageText}) {
     return (
-        <Link to={"dialogs/" + id}>
-            <div className={dialogs.dialogs}>{name}</div>
-        </Link>
+        <div className={style.message}>{messageText}</div>
     );
 }
 
-export default Dialog;
+export default Message;

@@ -1,20 +1,10 @@
-.container {
-    display: grid;
-    grid-template-columns: 2fr 10fr;
-}
-
-.dialogs {
-
-}
-
 .dialog {
-
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin: 10px 0;
 }
 
-.messages {
-
-}
-
-.message {
-
+.dialogElem {
+    margin: 0 10px;
 }

@@ -1,34 +1,17 @@
-import profile from "./MyPosts.module.css"
-function MyPosts() {
+import post from "./Post.module.css"
+import Avatar from "../../../Avatar/Avatar";
+function Post({postText, likesCount}) {
     return (
-        <div className="content block">
-            <div className={profile.header}></div>
-            <div className={profile.info}>
-                <div className={profile.ava}>
-                    <img src="https://s13.stc.yc.kpcdn.net/share/i/instagram/B44solahwlo/wr-1280.webp"/>
-                </div>
-                <div className={profile.description}>
-                    Description
-                </div>
+        <div className={post.container}>
+            <Avatar />
+            <div className={post.content}>
+                <h2>{postText}</h2>
             </div>
-            <div className={profile.content}>
-                <div className={profile.newPost}>
-                    New post
-                </div>
-                <div className={profile.posts}>
-                    <div className={profile.post}>
-                        Post 1
-                    </div>
-                    <div className={profile.post}>
-                        Post 2
-                    </div>
-                    <div className={profile.post}>
-                        Post 3
-                    </div>
-                </div>
+            <div className={post.likes}>
+                <p>Likes: {likesCount}</p>
             </div>
         </div>
     );
 }
 
-export default MyPosts;
+export default Post;
