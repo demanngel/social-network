@@ -10,12 +10,12 @@ function Dialogs(props) {
     let component = createRef();
 
     let sendMessage = () => {
-        props.addMessage(component.current.value);
+        props.dispatch({type: 'ADD_MESSAGE'});
     }
 
     let changeMessage = () => {
         let text = component.current.value;
-        props.changeMessageText(text);
+        props.dispatch({type: 'UPDATE_MESSAGE_TEXT', text: text});
     }
 
     return (

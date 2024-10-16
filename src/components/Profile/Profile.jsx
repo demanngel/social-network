@@ -5,7 +5,7 @@ function Profile(props) {
     return (
         <div className={style.profile  + " block"}>
             <ProfileInfo />
-            <MyPosts state={props.state} addPost={props.addPost} changePostText={props.changePostText}/>
+            <MyPosts state={props.state} dispatch={props.dispatch}/>
         </div>
     );
 }

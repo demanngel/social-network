@@ -7,12 +7,12 @@ function MyPosts(props) {
     let component = createRef();
 
     let addPost = () => {
-        props.addPost();
+        props.dispatch({type: 'ADD_POST'});
     }
 
     let changePostText = () => {
         let text = component.current.value
-        props.changePostText(text);
+        props.dispatch({type: 'UPDATE_POST_TEXT', text: text});
     }
 
     return (
