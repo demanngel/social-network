@@ -14,8 +14,8 @@ function Dialogs(props) {
     }
 
     let changeMessage = () => {
-        debugger;
-        props.changeMessageText();
+        let text = component.current.value;
+        props.changeMessageText(text);
     }
 
     return (
