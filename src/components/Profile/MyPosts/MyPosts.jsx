@@ -1,25 +1,23 @@
 import style from "./MyPosts.module.css"
 import Post from "./Post/Post";
-import {createRef} from "react";
-import {addPostActionCreator, updatePostTextActionCreator} from "../../../redux/state";
+import {addPostCreator, updatePostTextCreator} from "../../../redux/profileReducer";
 
 function MyPosts(props) {
     let postsElem = props.state.posts.map(post => <Post postText={post.text} likesCount={post.likes}/>)
-    let component = createRef();
 
     let addPost = () => {
-        props.dispatch(addPostActionCreator());
+        props.dispatch(addPostCreator());
     }
 
-    let updatePostText = () => {
-        let text = component.current.value
-        props.dispatch(updatePostTextActionCreator(text));
+    let updatePostText = (e) => {
+        let text = e.target.value;
+        props.dispatch(updatePostTextCreator(text));
     }
 
     return (
         <div className={style.content}>
             <div className={style.newPost}>
-                <textarea onChange={updatePostText} ref={component}  value={props.state.postText}/>
+                <textarea onChange={updatePostText} value={props.state.postText}/>
                 <button onClick={addPost}>Add post</button>
             </div>
             <div className={style.posts}>
